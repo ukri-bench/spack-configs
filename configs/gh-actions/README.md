@@ -12,7 +12,7 @@ The GPU compiler scripts can be used as 'actions', e.g.:
   uses: ukri-bench/spack-configs/actions/rocm@main
 ```
 
-<!-- ```bash
+```bash
 - name: Install CUDA
   uses: ukri-bench/spack-configs/actions/cuda@main
 ```
@@ -25,4 +25,4 @@ The GPU compiler scripts can be used as 'actions', e.g.:
 
   See
   https://github.com/ukri-bench/benchmark-dolfinx/blob/main/.github/workflows/spack-ci.yml
-  for examples of use. -->
+  for examples of use.
