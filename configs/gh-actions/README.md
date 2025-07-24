@@ -1,4 +1,4 @@
-# GitHub Actions Spack configurations
+# GitHub Actions Spack configurations
 
 The Spack configuration files are for GitHub Actions, and include
 support for pushing to the `ukri-bench` Spack binary cache.
