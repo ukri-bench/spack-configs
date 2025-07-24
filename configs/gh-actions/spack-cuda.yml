@@ -1,0 +1,34 @@
+spack:
+  view: /opt/view
+  config:
+    install_tree:
+      root: /opt/spack
+      padded_length: 128
+
+  packages:
+    all:
+      require:
+      - target=x86_64_v3
+    gcc:
+      externals:
+      - spec: gcc@13.3.0 languages:='c,c++,fortran'
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+    cuda:
+      buildable: false
+      externals:
+      - spec: cuda@12.9.0
+        prefix: /usr/local/cuda
+
+  mirrors:
+    local-buildcache:
+      url: oci://ghcr.io/ukri-bench/spack-buildcache
+      binary: true
+      signed: false
+      access_pair:
+        id_variable: GITHUB_USER
+        secret_variable: GITHUB_TOKEN
