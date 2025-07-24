@@ -7,12 +7,12 @@ GitHub Actions jobs should create environments using one of the files in
 this repository. For GPU environments, the Spack configurations are
 compatible with the GPU compiler install scripts in this repository.
 The GPU compiler scripts can be used as 'actions', e.g.:
-<!-- ```bash
+```bash
 - name: Install ROCm
   uses: ukri-bench/spack-configs/actions/rocm@main
 ```
 
-```bash
+<!-- ```bash
 - name: Install CUDA
   uses: ukri-bench/spack-configs/actions/cuda@main
 ```
