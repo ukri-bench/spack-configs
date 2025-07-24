@@ -15,11 +15,11 @@ spack:
       - spec: cuda@12.9.0
         prefix: /usr/local/cuda
 
-  mirrors:
-    local-buildcache:
-      url: oci://ghcr.io/ukri-bench/spack-buildcache
-      binary: true
-      signed: false
-      access_pair:
-        id_variable: GITHUB_USER
-        secret_variable: GITHUB_TOKEN
+  # mirrors:
+  #   local-buildcache:
+  #     url: oci://ghcr.io/ukri-bench/spack-buildcache
+  #     binary: true
+  #     signed: false
+  #     access_pair:
+  #       id_variable: GITHUB_USER
+  #       secret_variable: GITHUB_TOKEN
