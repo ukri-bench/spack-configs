@@ -9,7 +9,7 @@ spack:
     all:
       require:
       - target=x86_64_v3
-   gcc:
+    gcc:
       externals:
       - spec: gcc@13.3.0 languages:='c,c++,fortran'
         prefix: /usr
@@ -78,11 +78,11 @@ spack:
       - spec: rocm-cmake@6.4.1
         prefix: /opt/rocm
 
-  # mirrors:
-  #   local-buildcache:
-  #     url: oci://ghcr.io/ukri-bench/spack-buildcache
-  #     binary: true
-  #     signed: false
-  #     access_pair:
-  #       id_variable: GITHUB_USER
-  #       secret_variable: GITHUB_TOKEN
+  mirrors:
+    local-buildcache:
+      url: oci://ghcr.io/ukri-bench/spack-buildcache
+      binary: true
+      signed: false
+      access_pair:
+        id_variable: GITHUB_USER
+        secret_variable: GITHUB_TOKEN
