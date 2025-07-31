@@ -1,0 +1,31 @@
+---
+name: "install-gpu-driver"
+description: "Install CUA or ROCm drivers Ubuntu."
+inputs:
+  runtime:
+    description: "GPU runtime/backend"
+    required: true
+runs:
+  using: composite
+  steps:
+
+    - if: ${{ inputs.runtime == 'rocm'}}
+      name: install-rocm
+      shell: bash
+      run: |
+        wget https://repo.radeon.com/amdgpu-install/6.4.1/ubuntu/noble/amdgpu-install_6.4.60401-1_all.deb
+        sudo apt-get install ./amdgpu-install_6.4.60401-1_all.deb
+        sudo apt-get update
+        sudo apt-get install python3-setuptools python3-wheel
+        DEBIAN_FRONTEND=noninteractive amdgpu-install --accept-eula -y --usecase=rocmdev --no-dkms
+        sudo apt-get install hipcc rocm-core rocthrust
+
+    - if: ${{ inputs.runtime == 'cuda'}}
+      name: install-cuda
+      shell: bash
+      run: |
+        wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+        sudo dpkg -i cuda-keyring_1.1-1_all.deb
+        sudo apt-get update
+        sudo apt-get -y install cuda-compiler-12-9
+
