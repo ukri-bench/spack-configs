@@ -9,7 +9,7 @@ runs:
   using: composite
   steps:
 
-    - if: ${{ inputs.runtime == 'rocm'}}
+    - if: ${{ inputs.runtime == 'rocm' }}
       name: install-rocm
       shell: bash
       run: |
@@ -20,7 +20,7 @@ runs:
         DEBIAN_FRONTEND=noninteractive amdgpu-install --accept-eula -y --usecase=rocmdev --no-dkms
         sudo apt-get install hipcc rocm-core rocthrust
 
-    - if: ${{ inputs.runtime == 'cuda'}}
+    - if: ${{ inputs.runtime == 'cuda' }}
       name: install-cuda
       shell: bash
       run: |
@@ -29,3 +29,9 @@ runs:
         sudo apt-get update
         sudo apt-get -y install cuda-compiler-12-9
 
+
+    - if: ${{ inputs.runtime != 'cuda' && inputs.runtime != 'rocm' }}
+      name: Unknown backend
+      run: |
+        echo "::error file={name},line={line},endLine={endLine},title={title}::{message}"
+        exit 1
