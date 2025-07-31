@@ -32,6 +32,7 @@ runs:
 
     - if: ${{ inputs.runtime != 'cuda' && inputs.runtime != 'rocm' }}
       name: Unknown backend
+      shell: bash
       run: |
         echo "::error file={name},line={line},endLine={endLine},title={title}::{message}"
         exit 1
