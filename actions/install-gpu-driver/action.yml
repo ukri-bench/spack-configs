@@ -13,10 +13,10 @@ runs:
       name: install-rocm
       shell: bash
       run: |
-        wget https://repo.radeon.com/amdgpu-install/6.4.1/ubuntu/noble/amdgpu-install_6.4.60401-1_all.deb
-        sudo apt-get install ./amdgpu-install_6.4.60401-1_all.deb
-        sudo apt-get update
-        sudo apt-get install python3-setuptools python3-wheel
+        wget https://repo.radeon.com/amdgpu-install/6.4.2/ubuntu/noble/amdgpu-install_6.4.60402-1_all.deb
+        sudo apt install ./amdgpu-install_6.4.60402-1_all.deb
+        sudo apt update
+        sudo apt install python3-setuptools python3-wheel
         DEBIAN_FRONTEND=noninteractive amdgpu-install --accept-eula -y --usecase=rocmdev --no-dkms
         sudo apt-get install hipcc rocm-core rocthrust
 
