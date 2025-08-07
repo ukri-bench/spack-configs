@@ -9,11 +9,11 @@ spack:
     all:
       require:
       - target=x86_64_v3
-    cuda:
-      buildable: false
-      externals:
-      - spec: cuda@12.9.0
-        prefix: /usr/local/cuda
+    # cuda:
+    #   buildable: false
+    #   externals:
+    #   - spec: cuda@12.9.0
+    #     prefix: /usr/local/cuda
 
   # mirrors:
   #   local-buildcache:
