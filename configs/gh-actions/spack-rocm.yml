@@ -18,15 +18,15 @@ spack:
     #         c: /usr/bin/gcc
     #         cxx: /usr/bin/g++
     #         fortran: /usr/bin/gfortran
-    # llvm-amdgpu:
-    #   externals:
-    #   - spec: llvm-amdgpu@6.4.1
-    #     prefix: /opt/rocm/llvm/
-    #     extra_attributes:
-    #       compilers:
-    #         c: /usr/bin/amdclang
-    #         cxx: /usr/bin/amdclang++
-    #   buildable: false
+    llvm-amdgpu:
+      externals:
+      - spec: llvm-amdgpu@6.4.1
+        prefix: /opt/rocm/llvm/
+        extra_attributes:
+          compilers:
+            c: /usr/bin/amdclang
+            cxx: /usr/bin/amdclang++
+      buildable: false
     hip:
       buildable: false
       externals:
